@@ -32,25 +32,72 @@
           </div>
         </div>
 
-        <div class="architecture-card">
-          <img
-            src="/project-assets/Multi-Agent%20CX.excalidraw.png"
-            alt="Multi-agent CX architecture diagram"
-          />
-        </div>
+        <section class="architecture-flow" aria-label="Policy-safe multi-agent workflow">
+          <div class="flow-intro">
+            <p class="eyebrow">Architecture workflow</p>
+            <h2>AI support that checks policy before acting.</h2>
+          </div>
 
-        <div class="policy-strip" aria-label="Active policy rules">
+          <div class="workflow-steps">
+            <article class="workflow-card">
+              <span class="step-index">01</span>
+              <h3>Customer Message</h3>
+              <p>The system receives a support request such as refund, return, exchange, order tracking or escalation.</p>
+            </article>
+
+            <article class="workflow-card">
+              <span class="step-index">02</span>
+              <h3>Intent Router</h3>
+              <p>Classifies the customer intent and detects the required workflow.</p>
+            </article>
+
+            <article class="workflow-card emphasized">
+              <span class="step-index">03</span>
+              <h3>Policy Check / RAG</h3>
+              <p>Retrieves the relevant company policy and validates if the action is allowed.</p>
+            </article>
+
+            <article class="workflow-card">
+              <span class="step-index">04</span>
+              <h3>Workflow Planner</h3>
+              <p>Chooses the safest next step based on order status, refund limit, return window and customer context.</p>
+            </article>
+
+            <article class="workflow-card">
+              <span class="step-index">05</span>
+              <h3>Tool Execution</h3>
+              <p>Calls the correct operational system, such as Shopify, CRM, order database or support queue.</p>
+            </article>
+
+            <article class="workflow-card emphasized response">
+              <span class="step-index">06</span>
+              <h3>Final Response / Escalation</h3>
+              <p>Generates a customer-ready answer with the approved action, denial reason or human escalation.</p>
+            </article>
+          </div>
+        </section>
+
+        <div class="policy-strip" aria-label="Policy guardrails">
+          <h3>Policy Guardrails</h3>
           <div>
             <span class="status-dot green"></span>
-            Returns within 30 days
+            Returns allowed only after delivery
           </div>
           <div>
             <span class="status-dot amber"></span>
-            Manager review above $50
+            Auto-refunds available up to $50
           </div>
           <div>
             <span class="status-dot coral"></span>
-            Human handoff on frustration
+            Manager review required above refund limit
+          </div>
+          <div>
+            <span class="status-dot violet"></span>
+            Human handoff triggered by frustration or unclear cases
+          </div>
+          <div>
+            <span class="status-dot blue"></span>
+            Every response includes the policy reason behind the decision
           </div>
         </div>
       </section>
@@ -88,7 +135,7 @@
         </section>
 
         <section class="intent-bar" aria-label="Optional request type">
-          <button class="intent-button active" data-intent="">Auto</button>
+          <button class="intent-button active" data-intent="">Auto Workflow</button>
           <button class="intent-button" data-intent="wismo">Track</button>
           <button class="intent-button" data-intent="return_request">Return</button>
           <button class="intent-button" data-intent="refund_request">Refund</button>
@@ -109,7 +156,7 @@
             <strong>Standing by</strong>
           </div>
           <div class="decision-card" id="outcomeCard">
-            <span>Outcome</span>
+            <span>Decision</span>
             <strong>Waiting</strong>
           </div>
         </section>

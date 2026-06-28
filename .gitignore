@@ -6,6 +6,7 @@ venv/
 
 work_extract_ppt_media/
 frontend-chat-proof.png
+frontend-refined-proof.png
 
 .env
 .env.*
