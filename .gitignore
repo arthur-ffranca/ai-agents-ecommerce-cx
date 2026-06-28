@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+work_extract_ppt_media/
+frontend-chat-proof.png
+
+.env
+.env.*
+!.env.example

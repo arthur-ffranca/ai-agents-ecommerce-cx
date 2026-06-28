@@ -1,0 +1,32 @@
+goals:
+  automation_rate_min: 0.70
+  csat_min: 4.5
+  latency_p50_seconds_max: 1.0
+  latency_p95_seconds_max: 2.5
+
+scope:
+  enabled_workflows:
+    - wismo
+    - return_request
+    - exchange_request
+    - refund_request
+
+return_policy:
+  return_window_days: 30
+  requires_order_delivered: true
+
+refund_policy:
+  automatic_refund_limit_usd: 50
+  above_limit_requires_manager_approval: true
+  requires_payment_confirmed: true
+
+exchange_policy:
+  enabled: true
+  requires_eligible_category: true
+  requires_inventory_available: true
+
+handoff_policy:
+  user_requested: true
+  anger_detected: true
+  complex_case: true
+  refund_above_limit: true

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Agents for E-commerce CX</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="insight-panel" aria-label="CX automation overview">
+        <div class="brand-row">
+          <div class="mark" aria-hidden="true"></div>
+          <div>
+            <p class="eyebrow">Multi-agent CX</p>
+            <h1>Commerce support that acts inside policy.</h1>
+          </div>
+        </div>
+
+        <div class="metric-grid" aria-label="MVP targets">
+          <div>
+            <span class="metric-value">70%</span>
+            <span class="metric-label">automation target</span>
+          </div>
+          <div>
+            <span class="metric-value">&lt;2.5s</span>
+            <span class="metric-label">p95 response goal</span>
+          </div>
+          <div>
+            <span class="metric-value">$50</span>
+            <span class="metric-label">auto-refund limit</span>
+          </div>
+        </div>
+
+        <div class="architecture-card">
+          <img
+            src="/project-assets/Multi-Agent%20CX.excalidraw.png"
+            alt="Multi-agent CX architecture diagram"
+          />
+        </div>
+
+        <div class="policy-strip" aria-label="Active policy rules">
+          <div>
+            <span class="status-dot green"></span>
+            Returns within 30 days
+          </div>
+          <div>
+            <span class="status-dot amber"></span>
+            Manager review above $50
+          </div>
+          <div>
+            <span class="status-dot coral"></span>
+            Human handoff on frustration
+          </div>
+        </div>
+      </section>
+
+      <section class="chat-panel" aria-label="Customer chat simulator">
+        <header class="chat-header">
+          <div>
+            <p class="eyebrow">Live workflow simulator</p>
+            <h2>Customer conversation</h2>
+          </div>
+          <div class="service-state">
+            <span class="pulse" aria-hidden="true"></span>
+            API online
+          </div>
+        </header>
+
+        <section class="controls" aria-label="Request settings">
+          <label>
+            Customer
+            <select id="customerId">
+              <option value="cus_123">cus_123 · $35 delivered order</option>
+              <option value="cus_456">cus_456 · $120 delivered order</option>
+              <option value="cus_789">cus_789 · in-transit order</option>
+            </select>
+          </label>
+
+          <label>
+            Order
+            <select id="orderId">
+              <option value="ord_1001">ord_1001</option>
+              <option value="ord_1002">ord_1002</option>
+              <option value="ord_1003">ord_1003</option>
+            </select>
+          </label>
+        </section>
+
+        <section class="intent-bar" aria-label="Optional request type">
+          <button class="intent-button active" data-intent="">Auto</button>
+          <button class="intent-button" data-intent="wismo">Track</button>
+          <button class="intent-button" data-intent="return_request">Return</button>
+          <button class="intent-button" data-intent="refund_request">Refund</button>
+          <button class="intent-button" data-intent="exchange_request">Exchange</button>
+        </section>
+
+        <section class="decision-rail" aria-label="Workflow decision state">
+          <div class="decision-card active" id="intentCard">
+            <span>Intent</span>
+            <strong>Auto-detect</strong>
+          </div>
+          <div class="decision-card" id="policyCard">
+            <span>Policy</span>
+            <strong>Ready</strong>
+          </div>
+          <div class="decision-card" id="toolCard">
+            <span>Tool</span>
+            <strong>Standing by</strong>
+          </div>
+          <div class="decision-card" id="outcomeCard">
+            <span>Outcome</span>
+            <strong>Waiting</strong>
+          </div>
+        </section>
+
+        <section id="messages" class="messages" aria-live="polite"></section>
+
+        <form id="chatForm" class="composer">
+          <input
+            id="messageInput"
+            type="text"
+            autocomplete="off"
+            placeholder="Try: I want a refund"
+            aria-label="Customer message"
+          />
+          <button type="submit" aria-label="Send message">Send</button>
+        </form>
+
+        <section class="quick-actions" aria-label="Example messages">
+          <button data-message="Where is my order?">Where is my order?</button>
+          <button data-message="I want a refund">I want a refund</button>
+          <button data-message="I want to return my product">Return my product</button>
+          <button data-message="This is unacceptable, I want a human now">Escalate</button>
+        </section>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
